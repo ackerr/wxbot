@@ -4,7 +4,7 @@ font_file = 'simhei.ttf'
 
 
 def ps(text, name, high_size=700, font_size=80, color=(255, 255, 255)):
-    img = Image.open('{}.jpg'.format(name))  # type: Image.Image
+    img = Image.open('jpg/{}.jpg'.format(name))  # type: Image.Image
     if name == '1':
         font_size = 24
         high_size = 120
@@ -18,7 +18,7 @@ def ps(text, name, high_size=700, font_size=80, color=(255, 255, 255)):
     font = ImageFont.truetype(font_file, size=font_size)
     left = max((img_width - len(text) * font_size) // 2, 0)
     draw.text((left, high_size), text, color, font=font)
-    img.save('002.jpg')
+    img.save('jpg/002.jpg')
 
 
 if __name__ == '__main__':

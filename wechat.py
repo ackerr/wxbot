@@ -21,9 +21,9 @@ group1 = bot.groups(update=True).search('几时')[0]
 print(group1)
 print(group)
 friend = bot.search('强哥')[0]  # 好友昵称
-friend1 = bot.search('柔弱')[0]
 
-@bot.register(friend1, except_self=False)
+
+@bot.register(friend, except_self=False)
 def print_qiang(msg):
     if msg.text[-2:] == '天气':
         weather = get_weather(msg.text[:-2])
@@ -31,11 +31,10 @@ def print_qiang(msg):
     if '是不是' in msg.text:
         msg.reply(random.choice(['是', '不是']))
     if msg.text[:1] == 'p':
-        text = msg.text.split(' ')[1]
-        # print(text)
+        text = '\n'.join(msg.text.split(' ')[1:])
         if not text:
             return 'p <text>'
-        ps(text)
+        ps(text, msg.text.split(' ')[0][1:])
         msg.reply_image('002.jpg')
 
 
@@ -82,11 +81,11 @@ def print_other(msg):
         msg.reply(weather)
     if '是不是' in msg.text:
         msg.reply(random.choice(['是', '不是']))
-    if msg.text[:2] == 'ps':
-        text = msg.text.split(' ')[1]
+    if msg.text[:1] == 'p':
+        text = '\n'.join(msg.text.split(' ')[1:])
         if not text:
-            return 'ps <text>'
-        ps(text)
+            return 'p <text>'
+        ps(text, msg.text.split(' ')[0][1:])
         msg.reply_image('002.jpg')
 
 
