@@ -1,0 +1,11 @@
+# 素材图片
+lt.jpg
+wy.jpg
+
+.idea
+__pycache__/
+env/
+
+# wxpy 的 puid文件
+wxpy.pkl
+wxpy_puid.pk1
