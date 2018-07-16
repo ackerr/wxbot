@@ -48,7 +48,7 @@ def print_group(msg):
             return 'p <text>'
         ps(text, msg.text.split(' ')[0][1:])
         msg.reply_image('jpg/002.jpg')
-    else:
+    elif len(msg.text.split(' ')) > 0:
         with open('alias.json', 'r') as a:
             alias = json.dumps(a.read())
         if msg.text == 'help':
@@ -68,6 +68,7 @@ def print_group(msg):
             name = msg.text.split(' ')[1]
             ans = show_alias(name)
             msg.reply(','.join(ans))
+    else:
         if '是不是' in msg.text:
             msg.reply(random.choice(['是', '不是']))
         if '要不要' in msg.text:
