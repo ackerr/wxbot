@@ -1,5 +1,6 @@
 # 素材图片
 *.jpg
+*.png
 
 .idea/
 __pycache__/
