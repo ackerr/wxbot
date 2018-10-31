@@ -1,12 +1,14 @@
 # 素材图片
-lt.jpg
-wy.jpg
-002.jpg
+*.jpg
 
 .idea/
 __pycache__/
 env/
 
 # wxpy 的 puid文件
-wxpy.pkl
-wxpy_puid.pk1
+*.pkl
+*.pk1
+
+# 后续删了
+
+weacher_bot/
