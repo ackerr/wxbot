@@ -6,10 +6,6 @@
 __pycache__/
 env/
 
-# wxpy 的 puid文件
 *.pkl
 *.pk1
-
-# 后续删了
-
-weacher_bot/
+*.swp
