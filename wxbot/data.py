@@ -7,9 +7,10 @@ from matplotlib import pyplot
 def analyse_friends(friends):
     """ 好友性别 """
     sex = list(map(lambda x: x['Sex'], friends[1:]))
-    counts = list(map(lambda x: x[1], Counter(sex).items()))
-    labels = ['Male', 'Female', 'Unknown']
-    colors = ['blue', 'pink', 'green']
+    counts = dict(Counter(sex).items())
+    counts = [counts[0], counts[1], counts[2]]
+    labels = ['Unknown', 'Male', 'Female']
+    colors = ['green', 'blue', 'pink']
     pyplot.figure(figsize=(8, 5), dpi=80)
     pyplot.axes(aspect=1)
     pyplot.pie(
