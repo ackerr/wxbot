@@ -1,4 +1,5 @@
 import itchat
+from data import analyse_friends, analyse_location
 from itchat.content import MAP, PICTURE, TEXT, VIDEO
 from weather import get_weather
 
@@ -49,4 +50,7 @@ def download_files(msg):
         msg.download(msg.fileName)
 
 
-itchat.run(debug=True)  # 一直跑
+friend_data = itchat.get_friends(update=True)
+analyse_friends(friend_data)
+analyse_location(friend_data)
+itchat.run(debug=True)
