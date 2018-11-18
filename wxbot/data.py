@@ -1,6 +1,6 @@
 import csv
-
 from collections import Counter
+
 from matplotlib import pyplot
 
 
@@ -20,7 +20,7 @@ def analyse_friends(friends):
         autopct='%3.1f%%',
         shadow=False,
         startangle=90,
-        pctdistance=0.6
+        pctdistance=0.6,
     )
     pyplot.legend(loc='upper right')
     pyplot.title('wechat friends sex')
