@@ -35,6 +35,7 @@ def get_weather(city_name, key=k):
             day_temp = i['daytemp']
             night_temp = i['nighttemp']
             return '{} \n白天:{}  温度{}\n晚上:{}  温度{}'.format(city, day_weather, day_temp, night_weather, night_temp)
+    return None
 
 
 if __name__ == '__main__':
