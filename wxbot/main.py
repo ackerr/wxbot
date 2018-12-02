@@ -1,5 +1,5 @@
 import itchat
-from data import analyse_friends, analyse_location
+from analyse import analyse_friends, analyse_location
 from itchat.content import MAP, PICTURE, TEXT, VIDEO
 from weather import get_weather
 
