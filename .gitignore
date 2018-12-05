@@ -11,3 +11,4 @@ venv/
 *.pk1
 *.swp
 *.csv
+*.db
