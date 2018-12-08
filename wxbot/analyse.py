@@ -41,3 +41,12 @@ def analyse_location(friends):
             row['Province'] = friend['Province']
             row['City'] = friend['City']
             writer.writerow(row)
+
+
+if __name__ == '__main__':
+    import itchat
+    itchat.auto_login(enableCmdQR=2, hotReload=True)
+    friend_data = itchat.get_friends(update=True)
+    analyse_friends(friend_data)
+    analyse_location(friend_data)
+    itchat.run(debug=True)

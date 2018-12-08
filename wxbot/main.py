@@ -1,5 +1,5 @@
 import itchat
-from analyse import analyse_friends, analyse_location
+from constants import Username
 from itchat.content import MAP, PICTURE, TEXT, VIDEO
 from weather import get_weather
 
@@ -24,19 +24,18 @@ def get_friend(nickname, goal_friend=None):
 
 @itchat.msg_register([TEXT, MAP], isGroupChat=True)
 def send_weather(msg):
-    if msg['ToUserName'] == get_group('小吴全球粉丝后援会'):
+    if msg['ToUserName'] == get_group(Username.FRIEND_GROUP):
         if msg.Content[-2:] == '天气':
             weather = get_weather(msg.Content[:-2])
             itchat.send(weather, toUserName=msg['ToUserName'])
 
-    elif msg['ToUserName'] == get_group('30天 Django 实战训练营'):
-        if msg.Content[-2:] == '天气':
-            weather = get_weather(msg.Content[:-2])
-            itchat.send(weather, toUserName=msg['ToUserName'])
+    elif msg['ToUserName'] == get_group(Username.OTHER_GROUP):
+        pass
 
 
 @itchat.msg_register([TEXT, MAP])
 def text_func(msg):
+    """ 测试 """
     if msg['ToUserName'] == get_friend('ZmJ'):
         if msg.Content[-2:] == '天气':
             weather = get_weather(msg.Content[:-2])
@@ -46,11 +45,8 @@ def text_func(msg):
 @itchat.msg_register([PICTURE, VIDEO])
 def download_files(msg):
     """ 下载视频 """
-    if msg['ToUserName'] == get_group('小吴全球粉丝后援会'):
+    if msg['ToUserName'] == get_group(Username.FRIEND_GROUP):
         msg.download(msg.fileName)
 
 
-friend_data = itchat.get_friends(update=True)
-analyse_friends(friend_data)
-analyse_location(friend_data)
 itchat.run(debug=True)
