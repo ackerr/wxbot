@@ -3,8 +3,7 @@ import os
 import requests
 
 
-# k = os.environ.get('KEY')
-k = '4e5024e5f10a558109305cd63350bd37'
+k = os.environ.get('KEY')
 
 
 def get_city_number(city_name):
